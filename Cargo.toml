@@ -1,0 +1,22 @@
+[package]
+name = "rust-le-demo"
+version = "0.1.0"
+authors = ["lucia"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+heapless = { version = "0.7.16", features = ["ufmt-impl"] }
+spin = "0.9.4"
+
+
+[profile.dev]
+panic = "abort"
+lto = "fat"
+codegen-units = 1
+
+[profile.release]
+panic = "abort"
+lto = "fat"
+codegen-units = 1
