@@ -9,12 +9,8 @@ edition = "2021"
 [dependencies]
 heapless = { version = "0.7.16", features = ["ufmt-impl"] }
 spin = "0.9.4"
-
-
-[profile.dev]
-panic = "abort"
-lto = "fat"
-codegen-units = 1
+bitvec = { version = "1.0.1", default-features = false, features = ["atomic", "alloc"] }
+itertools = { version = "0.11", default-features = false, features = ["use_alloc"] }
 
 [profile.release]
 panic = "abort"
