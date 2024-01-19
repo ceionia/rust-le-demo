@@ -1,10 +1,14 @@
-# Rust LE Demo
+# Rust on DOS proof of concept (DOS/32A)
 
 this is a demo for using 32-bit Rust on DOS, just very basic. working on something a little bit bigger i might release.
+
+works by producing a ELF binary via Rust, then using a proof of concept utility i wrote to convert the ELF to an LE executable, which DOS/32A can load.
 
 needs the DOS/32A extender to run, compile normally with `cargo build --release` then use `elf2le target/dos/release/rust-le-demo.elf` (or whatever your path is) to produce `a.exe` in the working directory, `new.elf` will be overwritten as an intermediate by `elf2le`, sorry, it's bad code.
 
 you can run the generated executable on DOS with `dos32a a.exe`.
+
+under DOS, the `sc` or `sb` utilities provided by DOS/32A can add a stub to the LE executable, so that you don't need to start it via `dos32a` (`sc` can also compress it).
 
 my elf2le utility can be found on my site: https://ceionia.com/git/lucia/elf2le
 or on github: https://github.com/LCeionia/elf2le
